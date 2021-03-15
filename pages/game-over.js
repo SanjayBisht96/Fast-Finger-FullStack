@@ -1,5 +1,5 @@
 import styles from '../styles/Game.module.css'
-import { useState, useEffect } from 'react';
+import absoluteUrl from 'next-absolute-url'
 import dynamic from 'next/dynamic';
 import { homeUrl } from '../utils/consts';
 import useUserName from '../hooks/useUserName';
@@ -81,7 +81,7 @@ export default function GameOver() {
 
 
 GameOver.getInitialProps = async (ctx) =>{
-
-    let resp = await authPage('http://localhost:3000/api/checkauth',ctx);
+    const { protocol, host } = absoluteUrl(ctx.req, 'localhost:3000');
+    let resp = await authPage(`${protocol}//${host}/api/checkauth`,ctx);
     return {props : []};
   }

@@ -6,7 +6,7 @@ import { homeUrl, inGameUrl } from '../utils/consts';
 import useUserName from '../hooks/useUserName';
 import authPage from '../utils/authPage';
 import dynamic from 'next/dynamic';
-import { withCookies, Cookies } from 'react-cookie';
+import absoluteUrl from 'next-absolute-url'
 import { logout } from '../utils/callApi';
 
 const Header = dynamic(() => import('../components/Header'));
@@ -65,7 +65,8 @@ export default function Home() {
   )
 }
 
-Home.getInitialProps = async (ctx) =>{
-  let resp = await authPage('http://localhost:3000/api/checkauth',ctx);
+Home.getInitialProps = async (ctx) => {
+  const { protocol, host } = absoluteUrl(ctx.req, 'localhost:3000');
+  let resp = await authPage(`${protocol}//${host}/api/checkauth`,ctx);
   return {props : []};
 }
