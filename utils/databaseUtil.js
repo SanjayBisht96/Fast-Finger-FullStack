@@ -1,5 +1,6 @@
 import connection from '../connect';
-const util = require('util');
+import util from 'util';
+//const util = require('util');
 
 function insertQuery (sql) {
     connection.query(sql, function (err, result) {

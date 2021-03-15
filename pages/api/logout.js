@@ -1,5 +1,6 @@
 import { serialize } from 'cookie';
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
+//const jwt = require('jsonwebtoken');
 
 
 export default async function logout(req, res){

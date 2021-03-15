@@ -1,7 +1,8 @@
 import { compare } from 'bcrypt';
 import { serialize } from 'cookie';
 import { selectQuery } from '../../utils/databaseUtil';
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
+//const jwt = require('jsonwebtoken');
 
 export default async function login(req, res){
     if(req.method === 'POST'){

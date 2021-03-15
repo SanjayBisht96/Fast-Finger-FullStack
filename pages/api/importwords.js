@@ -1,7 +1,8 @@
 import { insertQuery } from '../../utils/databaseUtil';
 import data from '../../public/data/dictionary.json';
 import { EASY,MEDIUM,HARD } from '../../utils/consts';
-var fs = require('fs');
+import fs from  'fs';
+//var fs = require('fs');
 
 function checkDiffLevel(word){
   let diffLevel = '';
