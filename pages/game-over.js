@@ -81,7 +81,7 @@ export default function GameOver() {
 
 
 GameOver.getInitialProps = async (ctx) =>{
-    const { protocol, host } = absoluteUrl(ctx.req, 'localhost:3000');
-    let resp = await authPage(`${protocol}//${host}/api/checkauth`,ctx);
+    const { origin } = absoluteUrl(ctx.req);
+    let resp = await authPage(`${origin}/api/checkauth`,ctx);
     return {props : []};
   }

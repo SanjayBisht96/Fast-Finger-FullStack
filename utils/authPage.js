@@ -4,7 +4,7 @@ import absoluteUrl from 'next-absolute-url'
 
 export default async function authPage(url,ctx){
     const cookie = ctx.req?.headers.cookie;
-    const { protocol, host } = absoluteUrl(ctx.req, 'localhost:3000');
+    const { origin } = absoluteUrl(ctx.req);
     const resp = await fetch(url,{
         headers: {
             cookie :cookie
@@ -12,12 +12,12 @@ export default async function authPage(url,ctx){
     });
 
     if(resp.status === 401 && !ctx.req){
-        Router.replace(`${protocol}//${host}/login`);
+        Router.replace(`${origin}/login`);
         return {};
     }
     if(resp.status === 401 && ctx.req){
         ctx.res?.writeHead(302,{
-            Location: `${protocol}//${host}/login`
+            Location: `${origin}/login`
         });
         ctx.res?.end();
         return;
