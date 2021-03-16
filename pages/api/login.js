@@ -1,4 +1,4 @@
-import { compare } from 'bcrypt';
+import { compare } from 'bcryptjs';
 import { serialize } from 'cookie';
 import { selectQuery } from '../../utils/databaseUtil';
 import jwt from 'jsonwebtoken';

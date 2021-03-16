@@ -1,5 +1,5 @@
 import { insertQuery,selectQuery } from '../../../utils/databaseUtil';
-import { hash } from 'bcrypt';
+import { hash } from 'bcryptjs';
 
 
 export default async function submit(req, res){
