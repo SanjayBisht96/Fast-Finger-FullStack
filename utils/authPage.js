@@ -3,13 +3,13 @@ import Router from 'next/router';
 import absoluteUrl from 'next-absolute-url';
 import jwt from 'jsonwebtoken';
 
-export default async function authPage(url,ctx){
+export default async function authPage(ctx){
     const cookie = ctx.req?.headers.cookie;
     const { origin } = absoluteUrl(ctx.req);
     if(cookie && cookie.token){
         let match = jwt.verify(cookie.token, process.env.SECRET);
         if(match){
-            return res.status(200).json({message: "You are authenticated user"});
+            return {}
         }
     }
     if(!ctx.req){
@@ -17,10 +17,9 @@ export default async function authPage(url,ctx){
         return {};
     }
     if(ctx.req){
-        ctx.res?.writeHead(302,{
+        ctx.res?.setHeader({
             Location: `${origin}/login`
         });
-        ctx.res?.end();
-        return;
+        return {};
     }
 }

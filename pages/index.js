@@ -66,7 +66,6 @@ export default function Home() {
 }
 
 Home.getInitialProps = async (ctx) => {
-  const { origin } = absoluteUrl(ctx.req);
-  let resp = await authPage(`${origin}/api/checkauth`,ctx);
+  let resp = await authPage(ctx);
   return {props : []};
 }

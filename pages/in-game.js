@@ -103,3 +103,8 @@ export default function InGame() {
     </>
     )
 }
+
+InGame.getInitialProps = async (ctx) =>{
+    let resp = await authPage(ctx);
+    return {props : []};
+  }
