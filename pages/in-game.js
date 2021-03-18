@@ -1,7 +1,6 @@
 import styles from '../styles/Game.module.css'
-import { useEffect } from 'react';
 import Router from 'next/router';
-import { endGameUrl } from '../utils/consts';
+import { endGameUrl, loginUrl } from '../utils/consts';
 import dynamic from 'next/dynamic';
 import useTime from '../hooks/useTime'
 import useUserName from '../hooks/useUserName';
@@ -104,7 +103,19 @@ export default function InGame() {
     )
 }
 
-InGame.getInitialProps = async (ctx) =>{
-    let resp = await authPage(ctx);
-    return {props : []};
-  }
+export const getServerSideProps = async function ({ req, res }) {
+    let resp = await authPage(req);
+  
+    if (!resp) {
+      return {
+        redirect: {
+          destination: loginUrl,
+          permanent: false,
+        },
+      }
+    }
+  
+    return {
+      props: {  },
+    }
+}

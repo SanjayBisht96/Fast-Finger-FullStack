@@ -1,7 +1,6 @@
 import styles from '../styles/Game.module.css'
-import absoluteUrl from 'next-absolute-url'
 import dynamic from 'next/dynamic';
-import { homeUrl } from '../utils/consts';
+import { homeUrl, loginUrl } from '../utils/consts';
 import useUserName from '../hooks/useUserName';
 import useScore from '../hooks/useScore';
 import Router  from 'next/router';
@@ -79,8 +78,19 @@ export default function GameOver() {
     )
 }
 
-
-GameOver.getInitialProps = async (ctx) =>{
-    let resp = await authPage(ctx);
-    return {props : []};
-  }
+export const getServerSideProps = async function ({ req, res }) {
+    let resp = await authPage(req);
+    
+    if (!resp) {
+      return {
+        redirect: {
+          destination: loginUrl,
+          permanent: false,
+        },
+      }
+    }
+  
+    return {
+      props: {  },
+    }
+}
