@@ -154,3 +154,7 @@
 .userLogo{
     width:64px;
 }
+
+.error {
+    color: red;
+}

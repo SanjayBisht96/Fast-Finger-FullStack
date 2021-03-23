@@ -31,5 +31,6 @@ const inGameUrl = "/in-game";
 const endGameUrl = "/game-over";
 const registerUrl = "/register";
 const loginUrl = "/login";
+const errorUrl = "/error";
 
-export { EASY,MEDIUM,HARD,DIFF_OPTIONS,DiffFactorToDiffLevel, wordLengthLimit, diffFactorIncrement, counterMiliSecSpeed, homeUrl, inGameUrl, endGameUrl, registerUrl, loginUrl, secToMilliSec };
+export { EASY,MEDIUM,HARD,DIFF_OPTIONS,DiffFactorToDiffLevel, wordLengthLimit, diffFactorIncrement, counterMiliSecSpeed, homeUrl, inGameUrl, endGameUrl, registerUrl, loginUrl, errorUrl, secToMilliSec };

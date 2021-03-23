@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { wordLengthLimit } from '../utils/consts';
-import data from '../public/data/dictionary.json';
+import Router from 'next/router';
+import { errorUrl } from '../utils/consts';
 import { getRandomWord } from '../utils/callApi';
 
 const getWord = async (diffLevel) => {
@@ -8,6 +9,9 @@ const getWord = async (diffLevel) => {
       if(Array.isArray(wordLengthLimit[diffLevel])){
         const [minLength, maxLength] = wordLengthLimit[diffLevel];
         let randomWord = await getRandomWord(diffLevel);
+        if(!randomWord){
+          Router.push(errorUrl);
+        }
         while(randomWord.length < minLength || randomWord.length > maxLength){
           randomWord = await getRandomWord(diffLevel);
         }
@@ -31,7 +35,7 @@ function useWord(diffLevel) {
           }
           getWordSync();
         }
-    }, [word,input, diffLevel])
+    }, [word,input])
     return { word, setWord, input, setInput  }
 }
 export default useWord;
