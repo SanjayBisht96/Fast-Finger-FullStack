@@ -1,9 +1,8 @@
 Fast Fingers
-Try it out: https://fast-finger-app.vercel.app
-
-Pesto Tech is proudly launching its own speed typing game named Fast fingers. You have been awarded with the project and you need to design and develop this project which should meet the requirements mentioned in the MVP below.
+Try it out: https://fast-finger-full-stack-7wkuiomun-sanjaybisht96.vercel.app/
 
 MVP Requirement
+Add login feature
 Ask player to enter his/her name before starting the game.
 
 Do not ask player to enter his/her name again if he plays the game again in the same session.
@@ -45,33 +44,3 @@ Game score for the player is the total time player was able to remain in the gam
 Show previous games score for player in a sidebar
 
 Show best score for player
-
-Application UI should closely match with the provided UI design mocks.
-
-Note: Please deploy your application to Netlify(no other platforms allowed at this point) and Add your Application link to website section in About field 
-
-Additional Requirement
-Write Test cases for your components.
-Tips
-Deploy your application in very early stage and then do continous development.
-Test your application in Google Chrome, Mozilla firefox and Internet explorer 11.
-UI Design mocks
-UI design mocks are available in design-mocks folder
-
-	
-	
-	
-Adobe XD design link
-
-Zeplin web link
-
-Zeplin App Link: zpl://project?pid=5f75f13621f33094313f2b94
-
-Allowed Tech stack
-HTML, CSS, JavaScript
-Bootstrap
-ReactJS
-SCSS
-DOM Testing Library
-Jest and React Testing Library
-NOTE: React Component libraries like Material UI, Antd, Chakra UI are not allowed
